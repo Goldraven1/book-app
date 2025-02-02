@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - БуКроссинг</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <header>
+      <h1>БуКроссинг</h1>
+      <nav>
+        <ul>
+          <li><a href="#" data-target="home" class="active">Главная</a></li>
+          <li><a href="#" data-target="search">Поиск книг</a></li>
+          <li><a href="#" data-target="mylibrary">Мои книги</a></li>
+          <li><a href="#" data-target="profile">Профиль</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Главная: карточки с избранными книгами и приветствием -->
+      <section id="home" class="tab-content active">
+        <div class="card welcome-card">
+          <h2>Добро пожаловать!</h2>
+          <p>Найдите, обменяйтесь и обсуждайте книги с единомышленниками.</p>
+        </div>
+        <!-- Удалён блок "Рекомендуемые книги" -->
+        <!-- Вместо него добавлен блок "Последние обновления" -->
+        <div class="card news-card">
+          <h3>Последние обновления</h3>
+          <ul>
+            <li>Обновлён интерфейс форм для добавления книг.</li>
+            <li>Добавлен поиск книг по геолокации с новым дизайном.</li>
+            <li>Улучшена стабильность работы приложения.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Поиск книг: форма для ввода запроса и геолокационный поиск -->
+      <section id="search" class="tab-content">
+        <div class="card search-card">
+          <h2>Поиск книг</h2>
+          <div class="search-form-wrapper">
+            <form id="titleSearchForm">
+              <div class="input-group search-input-group">
+                <input type="text" id="searchQuery" placeholder="Введите название книги..." required>
+                <span class="search-icon">&#128269;</span>
+              </div>
+              <button type="submit" class="btn search-btn">Искать</button>
+            </form>
+          </div>
+          <div class="results" id="searchResults">
+            <!-- Результаты поиска появятся здесь -->
+          </div>
+        </div>
+      </section>
+      <!-- Мои книги: форма для добавления книги и список добавленных -->
+      <section id="mylibrary" class="tab-content">
+        <div class="card library-card">
+          <h2>Добавить книгу</h2>
+          <form id="addBookForm">
+            <div class="input-group">
+              <label for="bookTitle">Название:</label>
+              <input type="text" id="bookTitle" placeholder="Введите название книги" required>
+            </div>
+            <div class="input-group">
+              <label for="bookAuthor">Автор:</label>
+              <input type="text" id="bookAuthor" placeholder="Введите имя автора" required>
+            </div>
+            <div class="input-group">
+              <label for="bookDescription">Описание:</label>
+              <textarea id="bookDescription" placeholder="Краткое описание"></textarea>
+            </div>
+            <!-- Удаляем поле обложки -->
+            <!-- <div class="input-group">
+              <label for="bookCover">URL обложки:</label>
+              <input type="text" id="bookCover" placeholder="Ссылка на изображение">
+            </div> -->
+            <div class="input-group">
+              <label for="bookOwnerEmail">Ваш Email:</label>
+              <input type="email" id="bookOwnerEmail" placeholder="Введите Email" required>
+            </div>
+            <button type="submit">Добавить книгу</button>
+          </form>
+          <div class="library-list">
+            <h3>Список книг</h3>
+            <ul id="booksList"><!-- Список книг --></ul>
+          </div>
+        </div>
+      </section>
+      <!-- Профиль: отображение информации пользователя -->
+      <section id="profile" class="tab-content">
+        <div class="card profile-card">
+          <h2>Ваш профиль</h2>
+          <div class="profile-info" id="profileInfo">
+            <!-- Информация загружается динамически -->
+          </div>
+          <div class="stats">
+            <p><strong>Количество книг в библиотеке:</strong> <span id="profileBookCount">0</span></p>
+          </div>
+        </div>
+        <div class="card profile-edit-card">
+          <h3>Редактировать профиль</h3>
+          <form id="profileEditForm">
+            <div class="input-group">
+              <label for="newUsername">Новое имя пользователя:</label>
+              <input type="text" id="newUsername" placeholder="Введите новое имя">
+            </div>
+            <button type="submit">Сохранить</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 БуКроссинг. Все права защищены.</p>
+    </footer>
+  </div>
+  <script src="eel.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
